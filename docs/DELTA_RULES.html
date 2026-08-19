@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Delta Rules - Strategy Cheat-Sheet</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial; max-width: 1000px; margin: 40px auto; padding: 20px; line-height: 1.6; background: #fafafa; }
+h1 { color: #1a1a1a; border-bottom: 3px solid #f7931a; padding-bottom: 10px; }
+h2 { color: #333; margin-top: 40px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+th { background: #f7931a; color: white; padding: 12px 8px; text-align: left; font-size: 14px; }
+td { padding: 10px 8px; border-bottom: 1px solid #eee; font-size: 13px; }
+tr:hover { background: #fff8f0; }
+.rule-2 { background: #e6f7e6 !important; font-weight: bold; border-left: 4px solid #28a745; }
+.rule-4 { background: #ffe6e6 !important; border-left: 4px solid #dc3545; }
+.flow { background: #1a1a1a; color: #0f0; padding: 20px; border-radius: 8px; font-family: monospace; white-space: pre; overflow-x: auto; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+.badge-winner { background: #28a745; color: white; }
+.badge-put { background: #dc3545; color: white; }
+.badge-lottery { background: #6c757d; color: white; }
+</style>
+</head>
+<body>
+<h1>📊 Delta Rules - Options Strategy Cheat-Sheet</h1>
+<p><em>Your Top 5 live mapping from 19-Aug-2026 | BTC ~$64,262</em></p>
+
+<h2>Core Concept in Simple Words</h2>
+<ul>
+<li><strong>Delta POSITIVE (+0.05 to +1.0) = CALL</strong> → You win when BTC goes UP</li>
+<li><strong>Delta NEGATIVE (-1.0 to -0.05) = PUT</strong> → You win when BTC goes DOWN</li>
+<li><strong>Bigger Delta = Short-term, balanced, scalp</strong></li>
+<li><strong>Smaller Delta = Long-term, lottery, HODL</strong></li>
+</ul>
+<blockquote style="border-left: 4px solid #f7931a; padding-left: 16px; background: #fff8f0; margin: 20px 0;">
+You already used Rule #2 yesterday: BTC-28AUG26-64000-C Delta 0.56 → <strong>+33% profit overnight!</strong>
+</blockquote>
+
+<h2>Rules Table</h2>
+<table>
+<tr><th>Rule</th><th>Delta Range</th><th>Type</th><th>Simple Strategy</th><th>When to Use</th></tr>
+<tr><td><strong>1</strong></td><td>+0.70 to +1.0</td><td>Deep ITM Call</td><td><strong>SAFE CALL</strong> - Like owning BTC. 70-100% copy. Expensive, low risk.</td><td>Very bullish, want BTC exposure</td></tr>
+<tr class="rule-2"><td><strong>2 ⭐</strong></td><td>+0.40 to +0.70</td><td>ATM Call</td><td><strong>WINNER ZONE - Balanced Scalp!</strong> BTC up $100 → option up $40-$70</td><td><strong>Your sweet spot</strong> - 1-3 day trade</td></tr>
+<tr><td><strong>3</strong></td><td>+0.05 to +0.20</td><td>OTM Call Lottery</td><td><strong>LOTTERY CALL</strong> - Cheap, needs big move. 5-20% copy. Low Theta.</td><td>Long bet BTC to $100k by Dec</td></tr>
+<tr class="rule-4"><td><strong>4</strong></td><td>-0.20 to -0.50</td><td>OTM Put</td><td><strong>PUT OPPORTUNITY</strong> - Bear bet! Moves OPPOSITE</td><td>Think BTC will DROP</td></tr>
+<tr><td><strong>5</strong></td><td>-0.05 to -0.20</td><td>Far OTM Put</td><td><strong>CRASH INSURANCE</strong> - Black swan protection</td><td>Fear crash below $50k</td></tr>
+</table>
+
+<h2>Today's Top 5 Mapped (Live)</h2>
+<table>
+<tr><th>Instrument</th><th>Price</th><th>Delta</th><th>IV</th><th>Theta/day</th><th>Maps To</th><th>Note</th></tr>
+<tr class="rule-2"><td>BTC-28AUG26-64000-C</td><td>0.0197</td><td>+0.55</td><td>27%</td><td>-59.8</td><td><span class="badge badge-winner">Rule 2 WINNER</span></td><td>ATM, 9 days, 56% copy. Repeat of +33% scalp</td></tr>
+<tr class="rule-4"><td>BTC-28AUG26-63000-P</td><td>0.0089</td><td>-0.31</td><td>27%</td><td>-54.4</td><td><span class="badge badge-put">Rule 4 PUT</span></td><td>Slight OTM Put. Profit if BTC &lt;63k</td></tr>
+<tr><td>BTC-25SEP26-54000-P</td><td>0.006</td><td>-0.088</td><td>43%</td><td>-19.3</td><td><span class="badge badge-lottery">Rule 5 INSURANCE</span></td><td>Far OTM Sep. Cheap crash lottery</td></tr>
+<tr><td>BTC-25DEC26-100000-C</td><td>0.0046</td><td>+0.05</td><td>40%</td><td>-6.3</td><td><span class="badge badge-lottery">Rule 3 LOTTERY</span></td><td>$100k Dec, 128 days, 5% copy</td></tr>
+<tr><td>BTC-25DEC26-50000-P</td><td>0.0214</td><td>-0.13</td><td>46%</td><td>-15.2</td><td><span class="badge badge-lottery">Rule 5 INSURANCE</span></td><td>$50k Put Dec, bear insurance</td></tr>
+</table>
+
+<h2>Quick Decision Flowchart</h2>
+<div class="flow">Is Delta POSITIVE?
+  YES -> CALL (BTC UP wins)
+    Delta >0.5? -> Rule 1 or 2 -> SHORT-TERM SCALP (1-3 days)
+    Delta <0.2? -> Rule 3 -> LONG-TERM LOTTERY (months)
+  NO -> PUT (BTC DOWN wins)
+    Delta -0.2 to -0.5? -> Rule 4 -> BEAR SCALP / HEDGE
+    Delta -0.05 to -0.2? -> Rule 5 -> CRASH INSURANCE</div>
+
+<h2>Your Trade History</h2>
+<p><strong>Trade #1:</strong> 18-Aug: Bought BTC-28AUG26-64000-C @0.015 Delta 0.55 → Sold @0.02 Delta 0.55 = <strong>+0.0005 BTC (+33.3%)</strong><br>
+Reason: BTC 62957→64352 (+$1395) × Delta 0.55 = option up $0.005</p>
+
+<p style="color: #888; font-size: 12px; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">Generated from live Deribit testnet API: raw['greeks']['delta'] field | 19-Aug-2026</p>
+</body>
+</html>

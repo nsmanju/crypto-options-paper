@@ -1,84 +1,44 @@
-# Crypto Options Paper Trading - Deribit Testnet
+# Crypto Options Paper Trading Lab
+### Why Paper Trade in 2026? BTC Enters the Monetary System
 
-Learn BTC options Greeks (Delta, Gamma, Theta, Vega) with safe paper trading. No real money.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![LinkedIn Carousel](https://img.shields.io/badge/Carousel-World%20Bank%20Style-0057B8)](#-linkedin-carousel)
 
-From zero to +33% profitable trade in 2 days.
+> **TL;DR:** Japan reclassified crypto as financial assets (July 2026). Hong Kong's HKMA runs Project e-HKD+ with 21 banks. Governments hold 460,000 BTC (2.3% supply). Paper trading = safe simulation for this new monetary regime.
 
-## Folder Structure
-```
-crypto-options-paper/
-├── src/
-│   ├── connection.py            # Safe testnet connection (keys from .env)
-│   ├── find_top5.py             # Liquidity filter -> Top 5 options
-│   ├── greeks.py                # Live Greeks via raw['greeks']['delta']
-│   ├── portfolio_with_greeks.py # PnL + Delta dashboard
-│   └── rules_table.py           # Delta rules table in terminal
-├── docs/
-│   ├── DELTA_RULES.md           # Markdown cheat-sheet
-│   └── DELTA_RULES.html         # Beautiful HTML version
-├── examples/
-│   └── .env.example             # Template - copy to .env
-├── requirements.txt
-├── .gitignore                   # Blocks .env from GitHub
-└── README.md
-```
+---
 
-## Quick Start (Safe)
+## Macro Context 2026 - Quantified
 
-1. **Clone & Setup**
-```bash
-git clone <your-repo>
-cd crypto-options-paper
-python3 -m venv venv
-source venv/bin/activate
+| Jurisdiction | 2026 Status | Source |
+|---|---|---|
+| **Japan** | Crypto = Financial Assets under FIEA | Nikkei, FSA |
+| **Hong Kong** | Project e-HKD+ Phase 2: 21 banks, 11 use cases | HKMA.gov |
+| **Hong Kong** | First spot BTC/ETH ETFs Apr 2024, 11 VATP licensed | SFC/HKMA |
+| **USA** | Strategic Bitcoin Reserve 198k BTC | White House |
+| **Global** | 32 countries → 45 est, 460k BTC gov-held | EORMC |
+
+---
+
+## What This Repo Does
+
+Paper trading lab: Delta 0.70+ = high prob, Top5 liquidity filter, +33% paper P&L testnet
+
+Modules: find_top5.py, greeks.py, rules_table.py, macro_analysis.py
+
+## LinkedIn Carousel
+World Bank style - see docs/carousel/ - 6 slides
+
+Post template: BTC financial asset, Japan law, HKMA 21 banks, 460k BTC, github.com/nsmanju/crypto-options-paper #HKMA #eHKD
+
+## Quick Start
 pip install -r requirements.txt
-```
+python src/paper_trading.py --delta 0.7 --top5
+python src/macro_analysis.py
 
-2. **Add Testnet Keys (never commit!)**
-```bash
-cp examples/.env.example .env
-# Edit .env with your testnet keys from https://test.deribit.com/account/API
-```
+## Python Quantified
+USA 198k, UK 61k, Bhutan 13k, El Salvador 6.3k, HK 21 banks
+Global: 460k BTC = 2.3% supply
 
-3. **Run Dashboard**
-```bash
-python3 src/find_top5.py
-python3 src/greeks.py
-python3 src/portfolio_with_greeks.py
-```
-
-## Work Accomplished
-
-### 1. Deribit Connection
-- Sandbox mode, ccxt library, raw API for Greeks
-- Key learning: `publicGetTicker({'instrument_name': id})['result']['greeks']['delta']`
-
-### 2. Trading Logic
-- Liquidity filter (volume>5)
-- 5 Delta Rules: Rule 2 (0.40-0.70) Winner Zone = balanced scalp
-
-### 3. Execution
-- Trade #1: BTC-28AUG26-64000-C 0.015 -> 0.02 = +33.3% overnight
-- BTC move $62,957 -> $64,352 x Delta 0.55
-
-### 4. Safeguards
-- Testnet only, 0.1 contract sizing, Theta warnings, flat check
-
-### 5. Dashboard
-- PnL + Delta together, HTML cheat-sheet
-
-## Safeguards
-
-- `.gitignore` blocks `.env` - credentials never pushed
-- `set_sandbox_mode(True)` - testnet only
-- No real money, paper trading only
-
-## Example Output
-
-```
-BTC-28AUG26-64000-C
- Price 0.0197 IV 27% Delta 0.55 -> ATM Call - 56% copy
-```
-
-## License
-MIT License with educational disclaimer - see LICENSE file.
+See docs/MACRO_CONTEXT.md for full research

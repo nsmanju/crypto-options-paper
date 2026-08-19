@@ -47,7 +47,7 @@ python3 src/greeks.py
 python3 src/portfolio_with_greeks.py
 ```
 
-## What We Accomplished
+## Work Accomplished
 
 ### 1. Deribit Connection
 - Sandbox mode, ccxt library, raw API for Greeks
